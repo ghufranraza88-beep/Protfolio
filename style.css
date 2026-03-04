@@ -1,0 +1,215 @@
+/* Base Styles & Variables */
+:root {
+    --primary-color: #2563eb;
+    --dark-color: #1e293b;
+    --light-color: #f8fafc;
+    --text-color: #334155;
+    --white: #ffffff;
+    --error-color: #ef4444;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.page-padding {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* Header & Nav */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--dark-color);
+}
+
+.logo span { color: var(--primary-color); }
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero-content p { font-size: 1.2rem; margin-bottom: 2rem; }
+
+.btn {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.btn:hover { background: #1d4ed8; transform: translateY(-2px); }
+
+/* Features & Grids */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 5rem 2rem;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: var(--transition);
+}
+
+.feature-card:hover { transform: translateY(-10px); }
+
+/* Team Section */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.member-img {
+    height: 250px;
+    background: #e2e8f0;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+/* Contact Form */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.error-msg { color: var(--error-color); font-size: 0.8rem; display: none; }
+
+.map-placeholder {
+    height: 200px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-color);
+    color: var(--white);
+    padding: 3rem 0;
+    margin-top: 5rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Responsive Menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: var(--dark-color);
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 2rem;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    }
+    .nav-links.active { display: flex; }
+    .contact-wrapper { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 2rem; }
+}
